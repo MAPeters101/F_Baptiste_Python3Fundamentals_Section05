@@ -56,7 +56,32 @@ print(s[1:8:2])
 print(s[1::2])
 print(s[0::2])
 print(s[::2])
+print('='*80)
+
+s = 'abcdef'
+print(s[-4])
+print(s[-1])
+print(s[-4:-1])
+print(s[-1:-4])
+print(s[-1:-4:-1])
+print(s[:-4:-1])
+print(s[2::-1])
+print(s[2:0:-1])
+print(s[::-1])
 print()
+
+m = [1, 2, 30, 100]
+print(m[::-1])
+print()
+
+a = 'racecar'
+print(a == a[::-1])
+print()
+
+a = 'hello'
+print(a == a[::-1])
+print()
+
 
 
 
