@@ -38,4 +38,23 @@ t = tuple(s)
 print(t, len(t))
 l = list(s)
 print(l, len(l))
+print('-'*80)
 
+l = ['a', 'b', 'c', 'd', 'e', 'f']
+print(l)
+l = ['abcdef']
+print(l)
+l = list('abcdef')
+print(l)
+
+s='===================='
+print(len(s))
+
+s = '=//=' * 10
+print(s)
+
+t = (1,2,3) * 3
+print(t)
+
+l = [1,2,3] * 3
+print(l)
