@@ -8,7 +8,8 @@ Create two new variables that contain just the lower and upper case letters of s
 'ABCDEF'
 'abcdef'
 Exercise 2
-Concatenate the following tuples into a single one, but replacing the odd values with zeros (0).
+Concatenate the following tuples into a single one, but replacing the odd value
+s with zeros (0).
 
 t1 = 1, 2, 3, 4, 5, 6
 t2 = 7, 8, 9, 10
