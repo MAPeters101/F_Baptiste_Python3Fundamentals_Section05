@@ -33,8 +33,30 @@ print(sub[0] is l[0])
 sub[0][0] = 100
 print(sub)
 print(l)
+print('='*80)
 
+s = 'Python rocks!'
+print(s[7:])
+print(s[0:6])
+print(s[:6])
+print()
 
+l = [1,2,3,4,5]
+l2 = l1[:]
+print(l2)
+print(l is l2)
+l2[0] = 100
+print(l2)
+print(l)
+print()
+
+s = [1,2,3,4,5,6,7,8,9,10]
+print(s[1:8])
+print(s[1:8:2])
+print(s[1::2])
+print(s[0::2])
+print(s[::2])
+print()
 
 
 
