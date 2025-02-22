@@ -37,7 +37,17 @@ print(t, type(t), len(t))
 
 t = tuple()
 print(t, type(t), len(t))
+print('-'*80)
 
+l = [1,2,3]
+t = tuple(l)
+print(l, type(l))
+print(t, type(t))
 
+print('-'*80)
 
+t = 10, 20, 30
+l = list(t)
+print(t, type(t))
+print(l, type(l))
 
