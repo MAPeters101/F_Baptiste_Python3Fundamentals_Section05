@@ -51,3 +51,22 @@ l = list(t)
 print(t, type(t))
 print(l, type(l))
 
+print('-'*80)
+
+t = 10, 20, 3, 40
+print(t)
+l = list(t)
+l[2] = 30
+print(l)
+t = tuple(l)
+print(t)
+
+
+
+
+
+
+
+
+
+
