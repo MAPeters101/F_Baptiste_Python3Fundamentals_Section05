@@ -19,8 +19,17 @@ print(l)
 print(t)
 t[1][1] = 400
 print(t)
+print('-'*80)
 
+t = 1,2
+print(t, type(t))
 
+a = 10
+b = 20
+print((a, b, a+b))
 
+t = a, b, a+b
+print(t, type(t))
+print('-'*80)
 
 
