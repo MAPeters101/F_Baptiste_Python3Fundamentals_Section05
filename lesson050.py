@@ -87,3 +87,15 @@ print(m)
 m[1][1] = 1
 m[2][2] = 1
 print(m)
+
+print('='*80)
+
+m = [[0,0,0]] * 3
+print(m)
+print(m[0] is m[1])
+m[0][0] = 1
+print(m)
+
+row = [0,0,0]
+m = [row] * 3
+print(m)
