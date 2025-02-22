@@ -32,4 +32,12 @@ t = a, b, a+b
 print(t, type(t))
 print('-'*80)
 
+t = ()
+print(t, type(t), len(t))
+
+t = tuple()
+print(t, type(t), len(t))
+
+
+
 
