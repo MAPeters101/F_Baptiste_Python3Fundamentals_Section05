@@ -21,3 +21,21 @@ print(type(a),len(a))
 print(type(b),len(b))
 print('-'*80)
 
+
+s = str()
+print(type(s),len(s))
+
+t = (1, 2, 3)
+print(t)
+print(str(t))
+s = str(t)
+print(len(s))
+print(s[0])
+print()
+
+s = 'Python'
+t = tuple(s)
+print(t, len(t))
+l = list(s)
+print(l, len(l))
+
