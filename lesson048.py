@@ -61,9 +61,17 @@ print(l)
 t = tuple(l)
 print(t)
 
-
-
-
+print('-'*80)
+t = [1,2], 30, 40
+print(t)
+t[0][1] = 20
+print(t)
+l = list(t)
+print(l)
+print(l[0])
+l[0][0] = 10
+print(l)
+print(t)
 
 
 
