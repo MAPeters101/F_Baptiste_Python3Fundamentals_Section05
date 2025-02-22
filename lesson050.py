@@ -58,3 +58,32 @@ print(t)
 
 l = [1,2,3] * 3
 print(l)
+print('-'*80)
+
+l = [0] * 10
+print(l)
+
+t = ([1,2], 30)
+t2 = t * 3
+print(t2)
+print(t2[0] is t[0])
+print(t2[2] is t[0])
+print(t2[4] is t[0])
+print(t2[2] is t2[0])
+
+print()
+m = [
+    [0, 0, 0],
+    [0, 0, 0],
+    [0, 0, 0]
+]
+print(m[0][0], m[0][1], m[2][2])
+
+row_1 = m[0]
+print(row_1)
+print(row_1[1])
+row_1[0] = 1
+print(m)
+m[1][1] = 1
+m[2][2] = 1
+print(m)
