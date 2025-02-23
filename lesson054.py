@@ -41,8 +41,29 @@ l = [1,2,3,4,5,6]
 print(l[::2])
 del l[::2]
 print(l)
+print('-'*80)
 
 
+l = [1,2,3,4]
+print(l)
+l.append(5)
+print(l)
+l.append('python')
+print(l)
+l.append((1,2,3))
+print(l)
+print()
+
+l = [1,2,3,4]
+print(l)
+l.extend([5,6,7,8])
+print(l)
+l.extend((10,20))
+print(l)
+l.extend('python')
+print(l)
+
+print(l)
 
 
 
