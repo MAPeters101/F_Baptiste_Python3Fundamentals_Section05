@@ -29,6 +29,23 @@ l[:-3:-1] = 100, 200
 print(l)
 print('-'*80)
 
+l = [1,2,3,4,5,6,7,8]
+print(l[1:4])
+l[1:4] = 10, 20
+print(l)
+del l[2]
+print(l)
+print()
+
+l = [1,2,3,4,5,6]
+print(l[::2])
+del l[::2]
+print(l)
+
+
+
+
+
 
 
 
