@@ -62,7 +62,14 @@ l.extend((10,20))
 print(l)
 l.extend('python')
 print(l)
+print()
 
+l = [1,2,3,4]
+print(l)
+print(l[2])
+l.insert(2, 'a')
+print(l)
+l.insert(0, 'abc')
 print(l)
 
 
