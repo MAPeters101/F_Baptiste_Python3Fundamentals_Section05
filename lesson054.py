@@ -71,7 +71,18 @@ l.insert(2, 'a')
 print(l)
 l.insert(0, 'abc')
 print(l)
+print('-'*80)
 
+from timeit import timeit
+l = []
+print(timeit('l.append(1)',globals=globals(), number=100_000))
+print(len(l))
+print()
+
+l = []
+print(timeit('l.insert(0,1)',globals=globals(), number=100_000))
+print(len(l))
+print()
 
 
 
