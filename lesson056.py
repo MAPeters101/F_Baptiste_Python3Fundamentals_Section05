@@ -53,4 +53,12 @@ m2[0].append(10)
 print(m1)
 print(m2)
 
+print('-'*80)
+
+a = (1,2,3)
+b = a[:]
+print(b)
+print(a is b)
+
+
 
