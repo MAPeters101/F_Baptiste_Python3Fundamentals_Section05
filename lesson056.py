@@ -37,5 +37,20 @@ print(m1)
 print(m2)
 print('-'*80)
 
+from copy import deepcopy
+m1 = [[1,0,0],[0,1,0],[0,0,1]]
+m2 = deepcopy(m1)
+print(m1)
+print(m2)
+print(m1 is m2)
+print(m1[0])
+print(m2[0])
+print(m1[0] is m2[0])
+print()
+
+m2[0].append(10)
+
+print(m1)
+print(m2)
 
 
