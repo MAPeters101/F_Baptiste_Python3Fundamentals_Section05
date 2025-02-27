@@ -17,3 +17,28 @@ print(l1)
 print(l3)
 print('-'*80)
 
+m1 = [[1,0,0],[0,1,0],[0,0,1]]
+print(m1)
+m2 = m1.copy()
+print(m2)
+print(m1 is m2)
+m2.append([10,20,30])
+print(m1)
+print(m2)
+
+print()
+print(m1[0])
+print(m2[0])
+print(m1[0] is m2[0])
+print()
+m2[0].append(-1)
+
+print(m1)
+print(m2)
+
+
+
+print('-'*80)
+
+
+
