@@ -45,6 +45,32 @@ a, b, c =(1+1, s[::-1], 3.14)
 print(a)
 print(b)
 print(c)
+print('='*80)
+
+a = 100
+b = 3.14
+print(a, b)
+tmp = a
+a = b
+b = tmp
+print(a, b)
 print()
+
+a = 100
+b = 3.14
+t = b, a
+print(t)
+a, b = t
+print(a)
+print(b)
+print()
+
+a = 100
+b = 3.14
+a, b = b, a
+print(a)
+print(b)
+print()
+
 
 
