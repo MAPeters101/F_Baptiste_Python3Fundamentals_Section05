@@ -1,233 +1,215 @@
-"""
+'''
 Exercise 1
-Given a variable a (containing any value), re-assign the value "N/A" if a is None, and leave a unchanged otherwise. Use an if...else... statement.
+Given the following string:
 
-We need to create a variable a assign it some value, and then test the value of a to see if we need to change it to 'N/A':
+s = 'FfEeDdCcBbAa'
+Create two new variables that contain just the lower and upper case letters of s respectively, in the correct alphabetical order, i.e:
 
-a = 100
+'ABCDEF'
+'abcdef'
+Solution
+The string s is in reverse order, so at some point we'll need to reverse the string. We could either do it before we extract the upper and lwoer case characters, or we could do it after. Let's do both ways.
 
-if a is None:
-    a = 'N/A'
+We'll start by reversing the order first:
 
-print(a)
-Now let's try our code with a few more possible values for a:
+reversed_s = s[::-1]
+reversed_s
+'aAbBcCdDeEfF'
+Now we can use extended slicing starting at 0 to pick out every second character:
 
-a = 'Python'
+reversed_s[::2]
+'abcdef'
+And starting at 1 to pick out the upper case characters:
 
-if a is None:
-    a = 'N/A'
+reversed_s[1::2]
+'ABCDEF'
+Alternatively, we could pick the upper/lower case characters first, and then reverse the each result:
 
-print(a)
-a = None
-
-if a is None:
-    a = 'N/A'
-
-print(a)
+s[::2][::-1]
+'ABCDEF'
+s[1::2][::-1]
+'abcdef'
 Exercise 2
-Do the same thing as Question 1, but this time use a ternary operator.
+Concatenate the following tuples into a single one, but replacing the odd values with zeros (0).
 
-A ternary operator always calculates a value, but we don't want to modify a if it is not None.
+t1 = 1, 2, 3, 4, 5, 6
+t2 = 7, 8, 9, 10
+t3 = 11, 12, 13, 14, 15, 16, 17
+You can assume that every tuple is a sequence of consecutive integers starting with an odd integer.
 
-To do this we'll simply have the ternary operator evaluate to a if a is not None and to N/A otherwise:
+Try to write your code to be as generic as possible.
 
-a = 100
-a = 'N/A' if a is None else a
-print(a)
-And again we should test this with a few values:
+Solution
+We cannot mutate tuples, so we'll need to convert our tuples to lists first:
 
-a = 'Python'
-a = 'N/A' if a is None else a
-print(a)
-Python
-a = None
-a = 'N/A' if a is None else a
-print(a)
-N/A
+l1 = list(t1)
+l2 = list(t2)
+l3 = list(t3)
+Now that we have mutable sequences, we can use extended slicing to replace the odd integers with 0 in each list:
+
+l1[::2] = [0, 0, 0]
+l2[::2] = [0, 0]
+l3[::2] = [0, 0, 0, 0]
+l1
+[0, 2, 0, 4, 0, 6]
+l2
+[0, 8, 0, 10]
+l3
+[0, 12, 0, 14, 0, 16, 0]
+So this works, but you'll notice that we had to calculate (in our heads) how many zeros to replace the extended slice with (since with extended slicing the number of elements on both sides of the assignment must match).
+
+This is not very generic code - instead we can determine how many elements are in each extended slice by using the len function:
+
+len(l1[::2]), len(l2[::2]), len(l3[::2])
+(3, 2, 4)
+We also know that we can create a list of n repeated elements simply by multiplying a list by an integer:
+
+[0] * 5
+[0, 0, 0, 0, 0]
+So, we could replace each extended slice by a list [0] multiplied by the length of the extended slice:
+
+l1 = list(t1)
+l2 = list(t2)
+l3 = list(t3)
+
+l1[::2] = [0] * len(l1[::2])
+l2[::2] = [0] * len(l2[::2])
+l3[::2] = [0] * len(l3[::2])
+
+l1, l2, l3
+([0, 2, 0, 4, 0, 6], [0, 8, 0, 10], [0, 12, 0, 14, 0, 16, 0])
+Now we can concatenate those lists:
+
+result = l1 + l2 + l3
+result
+[0, 2, 0, 4, 0, 6, 0, 8, 0, 10, 0, 12, 0, 14, 0, 16, 0]
+But we actually want a tuple for our result:
+
+result = tuple(l1 + l2 + l3)
+result
+(0, 2, 0, 4, 0, 6, 0, 8, 0, 10, 0, 12, 0, 14, 0, 16, 0)
+Putting everything together:
+
+l1 = list(t1)
+l2 = list(t2)
+l3 = list(t3)
+
+l1[::2] = [0] * len(l1[::2])
+l2[::2] = [0] * len(l2[::2])
+l3[::2] = [0] * len(l3[::2])
+
+result = tuple(l1 + l2 + l3)
+result
+(0, 2, 0, 4, 0, 6, 0, 8, 0, 10, 0, 12, 0, 14, 0, 16, 0)
 Exercise 3
-Given an credit score score, assign a string value to another variable rating based on the following scale:
+Given the following matrix:
 
-[0, 580) --> Poor
-[580, 670) --> Fair
-[670, 740) --> Good
-[740, 800) --> Very Good
-[800, 850] --> Excellent
-We can do this using a series of if...elif...else statements:
+m = [
+    [0, 0, 0],
+    [0, 0, 0],
+    [0, 0, 0]
+]
+Make this matrix into an identity matrix (setting the diagonal elements to 1).
 
-score = 720
+Your code should mutate m.
 
-if score < 580:
-    rating = 'Poor'
-elif score < 670:
-    rating = 'Fair'
-elif score < 740:
-    rating = 'Good'
-elif score < 800:
-    rating = 'Very Good'
-else:
-    rating = 'Excellent'
+Solution
+Since we need to mutate m, we can simply assign the values directly into m:
 
-print(rating)
-Good
-Let's test this with a few values:
-
-score = 100
-if score < 580:
-    rating = 'Poor'
-elif score < 670:
-    rating = 'Fair'
-elif score < 740:
-    rating = 'Good'
-elif score < 800:
-    rating = 'Very Good'
-else:
-    rating = 'Excellent'
-
-print(rating)
-Poor
-score = 740
-if score < 580:
-    rating = 'Poor'
-elif score < 670:
-    rating = 'Fair'
-elif score < 740:
-    rating = 'Good'
-elif score < 800:
-    rating = 'Very Good'
-else:
-    rating = 'Excellent'
-
-print(rating)
-Very Good
-score = 810
-if score < 580:
-    rating = 'Poor'
-elif score < 670:
-    rating = 'Fair'
-elif score < 740:
-    rating = 'Good'
-elif score < 800:
-    rating = 'Very Good'
-else:
-    rating = 'Excellent'
-
-print(rating)
-Excellent
+m[0][0] = 1
+m[1][1] = 1
+m[2][2] = 1
+m
+[[1, 0, 0], [0, 1, 0], [0, 0, 1]]
 Exercise 4
-Given an elapsed time (in seconds), write code to set a variable magnitude based on the following conditions:
+Do the same problem as Exercise 3, but do not mutate m.
 
-if elapsed time is less than 1 minute, magnitude --> 'seconds'
-if elapsed time is more than 1 minute, but less than 1 hour, magnitude --> 'minutes'
-if elapsed time is more than 1 hour, but less than 1 day, magnitude --> 'hours'
-if elapsed time is more than 1 day, but less than 1 week: magnitude --> 'days'
-if elapsed time is more than 1 week, magnitude --> 'weeks'
-Our conditional expression might look something like this (pseudo code = not real code):
+Solution
+We cannt perform the operations from above directly on m.
 
-if elapsed < 1 minute:
-    magnitude = 'seconds'
-elif elapsed < 1 hour:
-    magnitude = 'minutes'
- elif elapsed < 1 day:
-     magnitude = 'hours'
- elif elapsed < 1 week:
-     magnitude = 'days'
- else:
-     magnitude = 'weeks'
-What now remains to be calculated is what 1 minute, 1 hour, 1 day, and 1 week are in terms of seconds (which is the units used for elapsed).
+The simplest is to make a copy of m - but a shallow copy would not be enough - let's see that first:
 
-We'll calculate those values and store them in variables - this not only "decomposes" the problem (break into smaller more managable parts), but will also help clarify the conditional statement so that it will look very much like the pseudo-code above.
+m = [[0, 0, 0], [0, 0, 0], [0, 0, 0]]
+result = m.copy()
+result
+[[0, 0, 0], [0, 0, 0], [0, 0, 0]]
+result[0][0] = 1
+result[1][1] = 1
+result[2][2] = 1
 
-seconds_in_minute = 60
-seconds_in_hour = 60 * seconds_in_minute
-seconds_in_day = 24 * seconds_in_hour
-seconds_in_week = 7 * seconds_in_day
-We can now write our code this way:
+result
+[[1, 0, 0], [0, 1, 0], [0, 0, 1]]
+So result looks good, but what about m?
 
-elapsed = 23  # secs
+m
+[[1, 0, 0], [0, 1, 0], [0, 0, 1]]
+That was mutated too, since the shallow copy still had references to the sub-lists in m.
 
-if elapsed < seconds_in_minute:
-    magnitude = 'seconds'
-elif elapsed < seconds_in_hour:
-    magnitude = 'minutes'
-elif elapsed < seconds_in_day:
-    magnitude = 'hours'
-elif elapsed < seconds_in_week:
-    magnitude = 'days'
-else:
-    magnitude = 'weeks'
+To get around this, we have to do a *deep copy.
 
-print(magnitude)
+from copy import deepcopy
+Let's get m back to its original state:
 
-seconds
-Let's try this with a few more values:
+m = [
+    [0, 0, 0],
+    [0, 0, 0],
+    [0, 0, 0]
+]
+And let's make the deep copy:
 
-elapsed = 30 * 60  # 30 minutes in seconds
+result = deepcopy(m)
 
-if elapsed < seconds_in_minute:
-    magnitude = 'seconds'
-elif elapsed < seconds_in_hour:
-    magnitude = 'minutes'
-elif elapsed < seconds_in_day:
-    magnitude = 'hours'
-elif elapsed < seconds_in_week:
-    magnitude = 'days'
-else:
-    magnitude = 'weeks'
+result[0][0] = 1
+result[1][1] = 1
+result[2][2] = 1
 
-print(magnitude)
-minutes
-elapsed = 12 * 60 * 60  # 12 hours in seconds
+result
+[[1, 0, 0], [0, 1, 0], [0, 0, 1]]
+And m now remains completely untouched:
 
-if elapsed < seconds_in_minute:
-    magnitude = 'seconds'
-elif elapsed < seconds_in_hour:
-    magnitude = 'minutes'
-elif elapsed < seconds_in_day:
-    magnitude = 'hours'
-elif elapsed < seconds_in_week:
-    magnitude = 'days'
-else:
-    magnitude = 'weeks'
+m
+[[0, 0, 0], [0, 0, 0], [0, 0, 0]]
+Exercise 5
+You are given a list of tuples that each contain 4 values:
 
-print(magnitude)
-hours
-elapsed = 48 * 60 * 60  # 48 hours in seconds
+(amount, currency, target_currency, exchange_rate)
+data = [
+    (100, 'USD', 'EUR', 0.83),
+    (100, 'USD', 'CAD', 1.27),
+    (100, 'CAD', 'EUR', 0.65)
+]
+Write code that converts the amount from its currency to its target_currency using the exchange_rate (which is the exchange rate for 1 currency in target_currency).
 
-if elapsed < seconds_in_minute:
-    magnitude = 'seconds'
-elif elapsed < seconds_in_hour:
-    magnitude = 'minutes'
-elif elapsed < seconds_in_day:
-    magnitude = 'hours'
-elif elapsed < seconds_in_week:
-    magnitude = 'days'
-else:
-    magnitude = 'weeks'
+Try to make your code as generic as possible (we'll see later how to use loops so we don't have to write three separate statements).
 
-print(magnitude)
-days
-elapsed = 3 * 7 * 24 * 60 * 60  # 3 weeks in seconds
+In other words, you'll need three blocks of code here that are essentially almost identical.
 
-if elapsed < seconds_in_minute:
-    magnitude = 'seconds'
-elif elapsed < seconds_in_hour:
-    magnitude = 'minutes'
-elif elapsed < seconds_in_day:
-    magnitude = 'hours'
-elif elapsed < seconds_in_week:
-    magnitude = 'days'
-else:
-    magnitude = 'weeks'
+Use unpacking to assign the values in each tuple to variables.
 
-print(magnitude)
-weeks
-Click to add a cell.
+Your result for each row should print something like this out:
 
-Simple
-0
-2
-Python 3 (ipykernel) | Idle
-1
-02+-+Solutions.ipynb
-Ln 1, Co
-"""
+100 USD = 83 EUR
+Solution
+We'll deal with row 0 first, and the repeat our code for the other two rows.
+
+row = 0
+
+amount, currency, target_currency, exchange_rate = data[row]
+converted = amount * exchange_rate
+print(amount, currency, '=', converted, target_currency, sep=' ')
+100 USD = 83.0 EUR
+Now we can use this same code, just changing the value of row to get the rest of our results:
+
+row = 1
+
+amount, currency, target_currency, exchange_rate = data[row]
+converted = amount * exchange_rate
+print(amount, currency, '=', converted, target_currency, sep=' ')
+100 USD = 127.0 CAD
+row = 2
+
+amount, currency, target_currency, exchange_rate = data[row]
+converted = amount * exchange_rate
+print(amount, currency, '=', converted, target_currency, sep=' ')
+100 CAD = 65.0 EUR
+'''
