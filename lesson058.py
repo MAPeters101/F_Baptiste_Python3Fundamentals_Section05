@@ -30,5 +30,21 @@ x, y, z = 'abc'
 print(x)
 print(y)
 print(z)
+print('='*80)
+
+a = 10 * 2**3 + 5
+print(a)
+a, b, c = [1,2,3]
+print(a)
+print(b)
+print(c)
 print()
+
+s = 'abcdef'
+a, b, c =(1+1, s[::-1], 3.14)
+print(a)
+print(b)
+print(c)
 print()
+
+
