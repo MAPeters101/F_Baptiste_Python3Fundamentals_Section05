@@ -137,6 +137,7 @@ m[1][1] = 1
 m[2][2] = 1
 m
 [[1, 0, 0], [0, 1, 0], [0, 0, 1]]
+
 Exercise 4
 Do the same problem as Exercise 3, but do not mutate m.
 
