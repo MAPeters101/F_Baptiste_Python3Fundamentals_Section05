@@ -11,19 +11,22 @@ s respectively, in the correct alphabetical order, i.e:
 """
 
 s = 'FfEeDdCcBbAa'
-ll = []
-ul = []
-for char in s:
-    if char.isupper():
-        ul.append(char)
-    else:
-        ll.append(char)
-ll.sort()
-ul.sort()
-l = ''.join(ll)
-u = ''.join(ul)
-print(u)
-print(l)
-
-
+# ll = []
+# ul = []
+# for char in s:
+#     if char.isupper():
+#         ul.append(char)
+#     else:
+#         ll.append(char)
+# ll.sort()
+# ul.sort()
+# l = ''.join(ll)
+# u = ''.join(ul)
+# print(u)
+# print(l)
+rev_s = s[::-1]
+ll = rev_s[::2]
+ul = rev_s[1::2]
+print(ll)
+print(ul)
 
