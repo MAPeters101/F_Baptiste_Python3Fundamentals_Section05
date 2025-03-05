@@ -142,9 +142,10 @@ Exercise 4
 Do the same problem as Exercise 3, but do not mutate m.
 
 Solution
-We cannt perform the operations from above directly on m.
+We can not perform the operations from above directly on m.
 
-The simplest is to make a copy of m - but a shallow copy would not be enough - let's see that first:
+The simplest is to make a copy of m - but a shallow copy would not be
+enough - let's see that first:
 
 m = [[0, 0, 0], [0, 0, 0], [0, 0, 0]]
 result = m.copy()
@@ -160,7 +161,8 @@ So result looks good, but what about m?
 
 m
 [[1, 0, 0], [0, 1, 0], [0, 0, 1]]
-That was mutated too, since the shallow copy still had references to the sub-lists in m.
+That was mutated too, since the shallow copy still had references to the
+sub-lists in m.
 
 To get around this, we have to do a *deep copy.
 
@@ -186,6 +188,8 @@ And m now remains completely untouched:
 
 m
 [[0, 0, 0], [0, 0, 0], [0, 0, 0]]
+
+
 Exercise 5
 You are given a list of tuples that each contain 4 values:
 
