@@ -32,13 +32,13 @@ data = [
 ]
 
 amount, currency, target_currency, exchange_rate = data[0]
-print(f'{amount} {currency} = {exchange_rate} {target_currency}')
+print(f'{amount} {currency} = {amount * exchange_rate} {target_currency}')
 
 amount, currency, target_currency, exchange_rate = data[1]
-print(f'{amount} {currency} = {exchange_rate} {target_currency}')
+print(f'{amount} {currency} = {amount * exchange_rate} {target_currency}')
 
 amount, currency, target_currency, exchange_rate = data[2]
-print(f'{amount} {currency} = {exchange_rate} {target_currency}')
+print(f'{amount} {currency} = {amount * exchange_rate} {target_currency}')
 
 
 
