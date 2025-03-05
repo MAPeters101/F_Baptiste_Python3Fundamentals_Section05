@@ -24,3 +24,23 @@ Your result for each row should print something like this out:
 
 100 USD = 83 EUR
 """
+
+data = [
+    (100, 'USD', 'EUR', 0.83),
+    (100, 'USD', 'CAD', 1.27),
+    (100, 'CAD', 'EUR', 0.65)
+]
+
+amount, currency, target_currency, exchange_rate = data[0]
+print(f'{amount} {currency} = {exchange_rate} {target_currency}')
+
+amount, currency, target_currency, exchange_rate = data[1]
+print(f'{amount} {currency} = {exchange_rate} {target_currency}')
+
+amount, currency, target_currency, exchange_rate = data[2]
+print(f'{amount} {currency} = {exchange_rate} {target_currency}')
+
+
+
+
+
