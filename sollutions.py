@@ -37,12 +37,14 @@ s[1::2][::-1]
 
 
 Exercise 2
-Concatenate the following tuples into a single one, but replacing the odd values with zeros (0).
+Concatenate the following tuples into a single one, but replacing the odd
+values with zeros (0).
 
 t1 = 1, 2, 3, 4, 5, 6
 t2 = 7, 8, 9, 10
 t3 = 11, 12, 13, 14, 15, 16, 17
-You can assume that every tuple is a sequence of consecutive integers starting with an odd integer.
+You can assume that every tuple is a sequence of consecutive integers
+starting with an odd integer.
 
 Try to write your code to be as generic as possible.
 
@@ -52,7 +54,8 @@ We cannot mutate tuples, so we'll need to convert our tuples to lists first:
 l1 = list(t1)
 l2 = list(t2)
 l3 = list(t3)
-Now that we have mutable sequences, we can use extended slicing to replace the odd integers with 0 in each list:
+Now that we have mutable sequences, we can use extended slicing to replace
+the odd integers with 0 in each list:
 
 l1[::2] = [0, 0, 0]
 l2[::2] = [0, 0]
@@ -63,17 +66,22 @@ l2
 [0, 8, 0, 10]
 l3
 [0, 12, 0, 14, 0, 16, 0]
-So this works, but you'll notice that we had to calculate (in our heads) how many zeros to replace the extended slice with (since with extended slicing the number of elements on both sides of the assignment must match).
+So this works, but you'll notice that we had to calculate (in our heads) how
+many zeros to replace the extended slice with (since with extended slicing the
+number of elements on both sides of the assignment must match).
 
-This is not very generic code - instead we can determine how many elements are in each extended slice by using the len function:
+This is not very generic code - instead we can determine how many elements are
+in each extended slice by using the len function:
 
 len(l1[::2]), len(l2[::2]), len(l3[::2])
 (3, 2, 4)
-We also know that we can create a list of n repeated elements simply by multiplying a list by an integer:
+We also know that we can create a list of n repeated elements simply by
+multiplying a list by an integer:
 
 [0] * 5
 [0, 0, 0, 0, 0]
-So, we could replace each extended slice by a list [0] multiplied by the length of the extended slice:
+So, we could replace each extended slice by a list [0] multiplied by the
+length of the extended slice:
 
 l1 = list(t1)
 l2 = list(t2)
@@ -108,6 +116,7 @@ l3[::2] = [0] * len(l3[::2])
 result = tuple(l1 + l2 + l3)
 result
 (0, 2, 0, 4, 0, 6, 0, 8, 0, 10, 0, 12, 0, 14, 0, 16, 0)
+
 Exercise 3
 Given the following matrix:
 
