@@ -199,11 +199,15 @@ data = [
     (100, 'USD', 'CAD', 1.27),
     (100, 'CAD', 'EUR', 0.65)
 ]
-Write code that converts the amount from its currency to its target_currency using the exchange_rate (which is the exchange rate for 1 currency in target_currency).
+Write code that converts the amount from its currency to its target_currency
+using the exchange_rate (which is the exchange rate for 1 currency in
+target_currency).
 
-Try to make your code as generic as possible (we'll see later how to use loops so we don't have to write three separate statements).
+Try to make your code as generic as possible (we'll see later how to use loops
+so we don't have to write three separate statements).
 
-In other words, you'll need three blocks of code here that are essentially almost identical.
+In other words, you'll need three blocks of code here that are essentially
+almost identical.
 
 Use unpacking to assign the values in each tuple to variables.
 
@@ -219,7 +223,8 @@ amount, currency, target_currency, exchange_rate = data[row]
 converted = amount * exchange_rate
 print(amount, currency, '=', converted, target_currency, sep=' ')
 100 USD = 83.0 EUR
-Now we can use this same code, just changing the value of row to get the rest of our results:
+Now we can use this same code, just changing the value of row to get the rest
+of our results:
 
 row = 1
 
