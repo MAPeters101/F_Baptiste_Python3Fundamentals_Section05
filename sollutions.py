@@ -3,19 +3,23 @@ Exercise 1
 Given the following string:
 
 s = 'FfEeDdCcBbAa'
-Create two new variables that contain just the lower and upper case letters of s respectively, in the correct alphabetical order, i.e:
+Create two new variables that contain just the lower and upper case letters
+of s respectively, in the correct alphabetical order, i.e:
 
 'ABCDEF'
 'abcdef'
 Solution
-The string s is in reverse order, so at some point we'll need to reverse the string. We could either do it before we extract the upper and lwoer case characters, or we could do it after. Let's do both ways.
+The string s is in reverse order, so at some point we'll need to reverse the
+string. We could either do it before we extract the upper and lower case
+characters, or we could do it after. Let's do both ways.
 
 We'll start by reversing the order first:
 
 reversed_s = s[::-1]
 reversed_s
 'aAbBcCdDeEfF'
-Now we can use extended slicing starting at 0 to pick out every second character:
+Now we can use extended slicing starting at 0 to pick out every second
+character:
 
 reversed_s[::2]
 'abcdef'
@@ -23,12 +27,15 @@ And starting at 1 to pick out the upper case characters:
 
 reversed_s[1::2]
 'ABCDEF'
-Alternatively, we could pick the upper/lower case characters first, and then reverse the each result:
+Alternatively, we could pick the upper/lower case characters first, and then
+reverse each result:
 
 s[::2][::-1]
 'ABCDEF'
 s[1::2][::-1]
 'abcdef'
+
+
 Exercise 2
 Concatenate the following tuples into a single one, but replacing the odd values with zeros (0).
 
